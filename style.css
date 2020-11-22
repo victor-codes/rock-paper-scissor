@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+*,
+*::before,
+a::after {
+    font: 62.5% 'Barlow Semi Condensed', sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --Scissors-Gradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%);
+    --Paper-Gradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%);
+    --Rock-Gradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%);
+    --Lizard-Gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%);
+    --Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%);
+    --Dark-Text: hsl(229, 25%, 31%);
+    --Score-Text: hsl(229, 64%, 46%);
+    --Header-Outline: hsl(217, 16%, 45%);
+    --Radial-Gradient: hsl(214, 47%, 23%), hsl(238, 48%, 15%);
+}
+
+body {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    background: rgb(31, 55, 86);
+    background-image: linear-gradient(var(--Radial-Gradient));
+    margin: 0;
+    padding: 16px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    max-width: 768px;
+    height: 126px;
+    margin: 24px auto 40px;
+    border-color: var(--Header-Outline);
+    border-width: 3px;
+    border-style: solid;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+h1,
+h2 {
+    font-size: 2.4rem;
+    color: white;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap !important;
+    padding: 4px 0;
+    width: 104px;
+    background: white;
+    border-radius: 8px;
+}
+
+p {
+    margin: 0;
+}
+
+.score-text {
+    font-size: 1.6rem;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    color: var(--Score-Text);
+    text-align: center;
+}
+
+.main {
+    max-width: 1140px;
+    margin: 104px auto 0;
+}
+
+#button {
+    display: flex;
+    flex-direction: column;
+    margin-top: 56px;
+}
+
+#count {
+    font-size: 4.8rem;
+    text-align: center;
+    margin: 0;
+}
+
+.background {
+    position: relative;
+    margin: 104px auto 0;
+    max-width: 600px;
+}
+
+#paper__button:hover,
+#scissor__button:hover,
+#rock__button:hover {
+    cursor: pointer;
+}
+
+.button {
+    font-size: 1.6rem;
+    text-align: center;
+    color: white;
+    background: none;
+    width: fit-content;
+    margin: auto !important;
+    padding: 8px 40px;
+    border: solid 3px var(--Header-Outline);
+    border-radius: 8px;
+    transition: transform 400ms;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: scale(1.02);
+}
+
+button:focus {
+    outline: 0;
+}
+
+.rules {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.rules .child {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    height: 100%;
+    height: 100%;
+    background: white;
+}
+
+@media only screen and (min-width : 500px) {
+    .rules .child {
+        max-height: 600px;
+        border-radius: 16px;
+
+    }
+
+    .rules .child div {
+        flex-direction: row !important;
+        height: fit-content !important;
+    }
+
+    .button {
+        position: fixed;
+        right: 40px;
+        bottom: 40px;
+    }
+}
+
+.game__rule {
+    max-width: 307px;
+    max-height: 300px;
+}
+
+.child svg g text {
+    font-size: 2rem;
+}
+
+.rules .child div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 32px 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+
+.child div svg {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+h3 {
+    font-size: 3.2rem;
+    text-transform: uppercase;
+    color: var(--Dark-Text);
+    margin: 0;
+    width: fit-content;
+}
+
+.background svg {
+    width: 100%;
+    height: 100%;
+}
+
+#result__dashboard,
+.display__none,
+.play__again,
+.player__result__scissor,
+.player__result__paper,
+.player__result__rock,
+.computer__result__paper,
+.computer__result__rock,
+.computer__result__scissor {
+    display: none;
+}
+
+#result__dashboard .result__content {
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    max-height: 900px;
+}
+
+h2 {
+    font-size: 4rem;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.play__again div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    margin: 40px auto 0;
+}
+
+.computer__rock {
+    width: fit-content;
+    height: fit-content;
+}
+
+@media only screen and (min-width: 672px) {
+    .play__again {
+        margin: auto 0;
+    }
+
+    .computer__choice {
+        order: 3;
+    }
+
+}
+
+@media only screen and (min-width: 585px) and (max-width: 640px) {
+    .player__result__paper,
+    .player__result__scissor,
+    .player__result__rock,
+    .computer__result__paper,
+    .computer__result__scissor,
+    .computer__result__rock {
+        height: 156px !important;
+        max-width: 156px !important;
+    }
+}
+
+@media only screen and (min-width: 520px) {
+    .player__result__paper,
+    .player__result__scissor,
+    .player__result__rock,
+    .computer__result__paper,
+    .computer__result__scissor,
+    .computer__result__rock {
+        height: 256px !important;
+        max-width: 256px !important;
+    }
+}
+
+#play__button {
+    font-size: 1.6rem;
+    background: white;
+    padding: 16px 80px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--Score-Text);
+    margin: 24px auto 0 auto !important;
+}
+
+@media only screen and (max-width: 270px) {
+    #play__button {
+        width: 100% !important;
+        padding: 16px 0;
+    }
+}
+
+/* .player__result__paper, .player__result__scissor, .player__result__rock, .computer__result__paper, .computer__result__scissor, .computer__result__rock {max-width: 460px;} */
+
+.player__paper, .player__scissor, .player__rock, .player__choice, .player__svg, .computer__paper, .computer__scissor, .computer__rock, .computer__choice, .computer__svg {
+    width: fit-content;
+}
+
+.player,
+.choice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media only screen and (max-width: 639px) {
+    .player,
+    .computer {
+        display: flex;
+        flex-direction: column-reverse !important;
+        align-items: center;
+    }
+
+    .player__result__paper,
+    .player__result__scissor,
+    .player__result__rock,
+    .computer__result__paper,
+    .computer__result__scissor,
+    .computer__result__rock {
+        height: 124px;
+        max-width: 124px;
+    }
+
+    .player h3,
+    .computer h3 {
+        margin-top: 24px !important;
+    }
+
+    .win::before {
+        content: "";
+        position: absolute !important;
+        z-index: -3;
+        border-radius: 50%;
+        margin: 1.5rem;
+        height: 240px;
+        width: 240px;
+        transform: translate(-29%, -30%) !important;
+        background: radial-gradient(#2C3B5A 38%, #293857 38% 50%, #233455 50% 100%)
+    }
+}
+
+.player h3,
+.computer h3 {
+    font-size: 1.6rem;
+    color: white;
+    margin: 0 auto 56px;
+}
+
+.player__choice,
+.computer__choice {
+    margin: auto;
+}
+
+@media only screen and (min-width:520px) {
+    .win::before {
+        content: "";
+        position: absolute !important;
+        z-index: -3;
+        border-radius: 50%;
+        margin: 1.5rem;
+        height: 440px !important;
+        width: 440px !important;
+        transform: translate(-29%, -25%) !important;
+        background: radial-gradient(#2C3B5A 38%, #293857 38% 50%, #233455 50% 100%);
+    }
+
+    .while__loading {
+        top: calc(100% - 195px);
+        left: 38px;
+    }
+}
+
+.result__status {
+    text-transform: uppercase;
+}
+
+.computer__svg {
+    z-index: -1;
+    position: relative;
+}
+
+.display__show {
+    display: block;
+}
+
+.while__loading {
+    position: absolute;
+    width: 124px;
+    height: 124px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    z-index: -1;
+}
