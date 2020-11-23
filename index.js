@@ -10,7 +10,6 @@ const resultDashboard = document.getElementById('result__dashboard');
 const playAgain = document.querySelector('.play__again');
 
 let resultStatus = document.getElementById('result__status');
-let gameState = true;
 let elementClicked = true;
 let userChoice;
 const playerWins = document.getElementById('player__wins');
@@ -19,9 +18,9 @@ let scoreCount = 0;
 
 function startGame() {
     rpsbuttonClick();
-
-    if (gameState) {
         [paperButton, scissorButton, rockButton].forEach(element => {
+            element.focus()
+            // element.display.style.outline = '3px'
             element.addEventListener('click', () => {
                 compChoice();
                 resultDashboard.style.display = 'block';
@@ -31,7 +30,6 @@ function startGame() {
                 }, 1000);
             })
         });
-    }
 }
 startGame();
 button.addEventListener('click', () => {
@@ -61,7 +59,6 @@ playAgainButton.addEventListener('click', () => {
     resultDashboard.style.display = 'none';
     playAgain.style.display = 'none';
     game.style.display = 'block';
-    gameState = false;
     playerWins.classList.remove('win');
     computerWins.classList.remove('win');
 
