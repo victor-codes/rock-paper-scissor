@@ -248,8 +248,11 @@ h2 {
     flex-direction: column;
     align-items: center;
     width: 240px !important;
-
-    /* margin: 40px auto 0; */
+}
+@media only screen and (max-width: 679px) {
+    .play__again div {
+        margin: 40px auto 0;
+    }
 }
 
 .computer__rock {
