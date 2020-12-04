@@ -2,7 +2,7 @@
 
 *,
 *::before,
-a::after {
+*::after {
     font: 62.5% 'Barlow Semi Condensed', sans-serif;
     box-sizing: border-box;
 }
@@ -116,8 +116,9 @@ p {
     cursor: pointer;
 }
 
-.button:hover {
-    transform: scale(1.02);
+.button:hover,
+.button:focus {
+    transform: scale(1.05);
 }
 
 button:focus {
@@ -237,6 +238,7 @@ h3 {
 
 h2 {
     font-size: 6rem;
+    text-align: center;
     width: fit-content;
     margin: 0 auto;
     color: white;
@@ -249,6 +251,7 @@ h2 {
     align-items: center;
     width: 240px !important;
 }
+
 @media only screen and (max-width: 679px) {
     .play__again div {
         margin: 40px auto 0;
@@ -293,6 +296,30 @@ h2 {
     }
 }
 
+@media only screen and (min-width: 900px) {
+
+    .player__result__paper,
+    .player__result__scissor,
+    .player__result__rock,
+    .computer__result__paper,
+    .computer__result__scissor,
+    .computer__result__rock {
+        height: 40rem !important;
+        width: 40rem !important;
+    }
+
+    .win::before {
+        transform: translate(-33%, -21%) !important;
+    }
+
+    .while__loading {
+        top: 24% !important;
+        left: 25px !important;
+        height: 200px !important;
+        width: 200px !important;
+    }
+}
+
 #play__button {
     font-size: 1.6rem;
     background: white;
@@ -312,9 +339,7 @@ h2 {
     }
 }
 
-/* .player__result__paper, .player__result__scissor, .player__result__rock, .computer__result__paper, .computer__result__scissor, .computer__result__rock {max-width: 460px;} */
-
-.player__paper,
+xxxxxxxx.player__paper,
 .player__scissor,
 .player__rock,
 .player__choice,
@@ -394,7 +419,6 @@ h2 {
         margin: 1.5rem;
         height: 640px !important;
         width: 640px !important;
-        transform: translate(-36%, -33%) !important;
         background: radial-gradient(#2C3B5A 38%, #293857 38% 50%, #233455 50% 100%);
     }
 
@@ -408,6 +432,12 @@ h2 {
     .while__loading {
         top: calc(100% - 195px);
         left: 38px;
+    }
+}
+
+@media only screen and (min-width: 520px) and (max-width: 899px) {
+    .win::before {
+        transform: translate(-36%, -33%) !important;
     }
 }
 
